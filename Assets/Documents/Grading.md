@@ -12,14 +12,14 @@ This Challenge is graded based on the following criteria:
 
 ### Technical Acceptance Criteria: 40%
 * Satisfies all of the above acceptance criteria plus the following:
-  * Uses IndexedDB to create an object store and includes both GET and PUT methods
-  * The application works without an internet connection
-  * Automatically saves content inside the text editor when the DOM window is unfocused
-  * Bundled with webpack
-  * Create a service worker with workbox that Caches static assets
-  * The application should use babel in order to use async / await
-  * Application must have a generated `manifest.json` using the `WebpackPwaManifest` plug-in
-  * Can be installed as a Progressive Web Application
+  * <span style="color:orange">Uses IndexedDB to create an object store and includes both GET and PUT methods</span>
+  * <span style="color:orange">The application works without an internet connection</span>
+  * <span style="color:orange">Automatically saves content inside the text editor when the DOM window is unfocused</span>
+  * <span style="color:orange">Bundled with webpack</span>
+  * <span style="color:orange">Create a service worker with workbox that Caches static assets</span>
+  * <span style="color:orange">The application should use babel in order to use async / await</span>
+  * <span style="color:orange">Application must have a generated `manifest.json` using the `WebpackPwaManifest` plug-in</span>
+  * <span style="color:orange">Can be installed as a Progressive Web Application</span>
 
 ### Deployment: 32%
 * Application deployed to Heroku at live URL with build scripts
