@@ -7,44 +7,46 @@ SO THAT I can reliably retrieve them for later use
 
 ## Acceptance Criteria
 
+<div style="font-size:24px">
 GIVEN a text editor web application
 
-<div style="color:orange;">
-WHEN I open my application in my editor<br/>
-THEN I should see a client server folder structure<br/>
+<span style="color:orange;font-size:24px">WHEN I open my application in my editor</span><br/>
+<span style="color:green">THEN I should see a client server folder structure</span><br/>
 
-WHEN I run `npm run start` from the root directory<br/>
-THEN I find that my application should start up the backend and serve the client<br/>
+<span style="color:orange">WHEN I run `npm run start` from the root directory</span><br/>
+<span style="color:green">THEN I find that my application should start up the backend and serve the client</span><br/>
 
-WHEN I run the text editor application from my terminal<br/>
-THEN I find that my JavaScript files have been bundled using webpack</div><br/>
+<span style="color:orange">WHEN I run the text editor application from my terminal</span><br/>
+<span style="color:green">THEN I find that my JavaScript files have been bundled using webpack</span><br/>
 
-WHEN I run my webpack plugins<br/>
-THEN I find that I have a generated HTML file, service worker, and a manifest file
+<span style="color:orange">WHEN I run my webpack plugins</span><br/>
+<span style="color:green">THEN I find that I have a generated HTML file, service worker, and a manifest file</span><br/>
 
-WHEN I use next-gen JavaScript in my application<br/>
-THEN I find that the text editor still functions in the browser without errors
+<span style="color:orange">WHEN I use next-gen JavaScript in my application</span><br/>
+<span style="color:green">THEN I find that the text editor still functions in the browser without errors</span><br/>
 
-WHEN I open the text editor<br/>
-THEN I find that IndexedDB has immediately created a database storage
+<span style="color:orange">WHEN I open the text editor</span><br/>
+<span style="color:green">THEN I find that IndexedDB has immediately created a database storage</span><br/>
 
-WHEN I enter content and subsequently click off of the DOM window<br/>
-THEN I find that the content in the text editor has been saved with IndexedDB
+<span style="color:orange">WHEN I enter content and subsequently click off of the DOM window</span><br/>
+<span style="color:green">THEN I find that the content in the text editor has been saved with IndexedDB</span><br/>
 
-WHEN I reopen the text editor after closing it<br/>
-THEN I find that the content in the text editor has been retrieved from our IndexedDB
+<span style="color:orange">WHEN I reopen the text editor after closing it</span><br/>
+<span style="color:green">THEN I find that the content in the text editor has been retrieved from our IndexedDB</span><br/>
 
-WHEN I click on the Install button<br/>
-THEN I download my web application as an icon on my desktop
+<span style="color:orange">WHEN I click on the Install button</span><br/>
+<span style="color:green">THEN I download my web application as an icon on my desktop</span><br/>
 
-WHEN I load my web application<br/>
-THEN I should have a registered service worker using workbox
+<span style="color:orange">WHEN I load my web application</span><br/>
+<span style="color:green">THEN I should have a registered service worker using workbox</span><br/>
 
-WHEN I register a service worker<br/>
-THEN I should have my static assets pre cached upon loading along with subsequent pages and static assets
+<span style="color:orange">WHEN I register a service worker</span><br/>
+<span style="color:green">THEN I should have my static assets pre cached upon loading along with subsequent pages and static assets</span><br/>
 
 WHEN I deploy to Heroku
 THEN I should have proper build scripts for a webpack application
+
+</div>
 
 ## Mock-Up
 
