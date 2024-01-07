@@ -33,7 +33,7 @@ The template-base application was given to us. Our challenge was to make-prepare
 
 Here is the snapshotJust Another Text Editor!
 
-<div style="margin-top: 15px;"><img src="./assets/images/node001.png"></div>
+<div align="center" style="margin-top: 15px;"><img src="./Assets/images/jate-001.png" height="800"></div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 </div>

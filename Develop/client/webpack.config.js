@@ -12,7 +12,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // Todo-done: Add and configure workbox plugins for a service worker and manifest file.
 // Todo-done: Add CSS loaders and babel to webpack.
