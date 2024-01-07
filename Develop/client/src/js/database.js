@@ -23,32 +23,40 @@ const initdb = async () =>
      });
 
 /**
- * ToDo-Done: Add logic to a method that accepts some content and adds it to the database. In here 
- * I have added a success/error traps.
+ * ToDo-Done: Add logic to a method that accepts some content and adds it to 
+ * the database. In here I have added a success/error traps.
  * @param {data} content 
  */
 export const putDb = async (content) => {
+     console.log('Post to the database');
      const jateDb = await openDB('jate', 1); // Connect database (include version)
      const tx = jateDb.transaction('jate', 'readwrite'); // RW transaction.
-     const store = tx.objectStore('jate'); // Open up the desired object store.
-     let request = store.put({ id:1, value: content }); // Add the content
+     const store = tx.objectStore('jate', 1); // Open up the desired object store.
+     let request = store.put({ id: 1, value: content }); // Add the content
      const result = await request;
+     console.log('🚀 - data saved to the database', result);
 };
 
 /**
- * ToDo-Done: Add logic for a method that gets all the content from the database. I should implement
- * an request.onsuccess / request.onerror to proplerly handle the call but I am not
+ * ToDo-Done: Add logic for a method that gets all the content from the database. 
+ * I should implement an request.onsuccess / request.onerror to proplerly handle 
+ * the call but I am not 
  * @returns result - Object containing all records
  */
 export const getAllDb = async () => {
      console.log('GET all from the database');
+
      const jateDb = await openDB('jate', 1);
      const tx = jateDb.transaction('jate', 'readonly');
      const store = tx.objectStore('jate');
-     const request = store.getAll();
+     const request = store.get(1);
      const result = await request;
-     console.log('result.value', result);
-     return result;
+
+     if (!result) {
+          console.error('getDb not implemented');
+     } else {
+          return result.content;
+     }
 };
 
 initdb();
