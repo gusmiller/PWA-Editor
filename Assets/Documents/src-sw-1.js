@@ -1,19 +1,11 @@
-/*******************************************************************
- * Carleton Bootcamp - 2023
- * Copyright 2023 Gustavo Miller
- * Licensed under Mozilla Public License Version 2.0
- * Assignment # 19 - Progressive Web Applications (PWA) 
- * Code provided by Carleton University as startup
- * 
- * Date : 12/30/2023 9:21:28 AM
- * Purpose: 
- *******************************************************************/
+// import necessary modules and strategies
 const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
 const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
+// precache assets
 precacheAndRoute(self.__WB_MANIFEST);
 
 // cache HTML pages with CacheFirst strategy
@@ -31,25 +23,13 @@ const pageCache = new CacheFirst({
 
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
-
-/**
- * ToDo-Done: Set up asset cache. Define the callback function 
- * that will filter the requests we want to cache (in this 
- * case, JS and CSS files)
- * Name of the cache storage: asset-cache
- */
-registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 // TODO: Implement asset caching
 // cache assets with StaleWhileRevalidate 
 registerRoute(
      ({ request }) =>
           request.destination === 'script' ||
-          request.destination === 'worker' ||
           request.destination === 'style' ||
-          (
-               request.destination === 'image' &&
-               request.url.includes('/images/')
-          ),
+          (request.destination === 'image' && request.url.includes('/images/')),
      new StaleWhileRevalidate({
           cacheName: 'assets-cache',
           plugins: [

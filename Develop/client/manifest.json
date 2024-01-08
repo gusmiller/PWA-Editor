@@ -1,18 +1,18 @@
 {
-     "short_name": "Manifest",
      "name": "Jate Editor",
+     "short_name": "J.A.T.E",
+     "description": "Jate Text Editor!",
+     "start_url": "./",
+     "display": "standalone",
+     "background_color": "#7eb4e2",
+     "theme_color": "#7eb4e2",
+     "orientation": "portrait",
      "icons": [
           {
-               "src": "./src/images/logo_500x500.png",
+               "src": "./src/images/logo.png",
                "type": "image/png",
                "sizes": "500x500",
                "purpose": "any maskable"
           }
-     ],
-     "orientation": "portrait",
-     "display": "standalone",
-     "start_url": "./",
-     "description": "Jate Text Editor!",
-     "background_color": "#7eb4e2",
-     "theme_color": "#7eb4e2"
+     ]
 }
