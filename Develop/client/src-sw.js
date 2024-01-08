@@ -37,14 +37,14 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 /**
- * ToDo-Done: Set up asset cache. Define the callback function that will filter 
- * the requests we want to cache (in this case, JS and CSS files)
+ * ToDo-Done: Set up asset cache. Define the callback function 
+ * that will filter the requests we want to cache (in this 
+ * case, JS and CSS files)
  * Name of the cache storage: asset-cache
  */
 registerRoute(
-     // 
      ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
-     new StaleWhileRevalidate({
+     new CacheFirst({
           cacheName: 'asset-cache',
           plugins: [
                // This plugin will cache responses with these headers to a maximum-age of 30 days

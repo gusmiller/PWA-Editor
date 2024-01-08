@@ -46,11 +46,13 @@ The JATE (Just Another Text Editor) requires two tiers; Server and client. Each 
 |Name|Description |
 |---|---|
 |[jate-repo][jate-repo]| Navigate to JATE github repo and clone application. |
-|[install-dependancies][]| Navigate to Develop folder and install depandancies. `npm run install` |
+|[main-dependancies][]| Navigate to Develop folder and install depandancies. `npm install` |
+|[install-dependancies][]| Once main depandancies have been installed then run this script: `npm run install` |
 |[build-develop][] | Run script `npm run start:dev`. This script will compile and create the JATE application, it generates the `dist` and starts the server. |
 |[start][] | Once application has been built we can run script `npm run start` to execute application. |
 
 [jate-repo]: https://github.com/gusmiller/PWA-Editor
+[main-dependancies]: main-dependacies
 [install-dependancies]: install-dependacies
 [build-develop]: build-develop
 [start]: start

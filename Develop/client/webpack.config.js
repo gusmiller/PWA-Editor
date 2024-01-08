@@ -22,7 +22,6 @@ module.exports = () => {
                main: './src/js/index.js',
                install: './src/js/install.js'
           },
-
           output: {
                filename: '[name].bundle.js',
                path: path.resolve(__dirname, 'dist'),
@@ -49,14 +48,19 @@ module.exports = () => {
                          {
                               src: path.resolve('src/images/logo.png'),
                               sizes: [96, 128, 192, 256, 384, 512],
-                              // type: "image/png",
-                              // name: '[name].[ext]',
                               destination: path.join('assets', 'icons'),
                          },
                     ],
+                    screenshots: [
+                         {
+                              src: path.resolve('src/images/logo.png'),
+                              sizes: "192x192",
+                              destination: path.join('assets', 'screenshots'),
+                              description: "J.A.T.E.",
+                         }
+                    ]
                }),
           ],
-
           module: {
                // CSS loaders
                rules: [
