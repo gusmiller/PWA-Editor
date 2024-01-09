@@ -6,7 +6,7 @@
 	<a><img src="https://img.shields.io/static/v1.svg?label=License&message=Mozilla Public License&color=blue"/></a>
 </p>
 
-# Progrssive Web Applications (PWA)
+# Progorssive Web Applications (PWA)
 
 <details style="margin-bottom: 25px; margin-top: 25px;">
 	<summary>Table of Contents</summary>
@@ -59,6 +59,36 @@ The JATE (Just Another Text Editor) requires two tiers; Server and client. Each 
 
 **NOTE** the client and server have their own dependancies and scripts. Please review each of the `package.json` for further details.
 
+**Installing dependancies**<br/>
+After running the `npm i` it will install all dependancies and development depandancies. We should get a screen like this.
+<div style="margin-top: 15px;">
+	<img align="center" src="./Assets/images/jate-003.png" alt="Dependaciens" height="600">
+</div>
+
+<details style="margin-bottom: 25px; margin-top: 25px;">
+	<summary><span style="color:orange">Building PWA Dist</span></summary>
+After all dependancies have been installed we are ready to build the PWA application. We need to run `npm run start:dev` if we want to continue developing and `npm run start` to compile in production mode.
+<div style="margin-top: 15px;">
+	<img align="center" src="./Assets/images/jate-002.png" alt="Build application" height="600">
+</div>
+</details>
+
+<details style="margin-bottom: 25px; margin-top: 25px;">
+	<summary><span style="color:orange">Application Manifest</span></summary>
+The Web Application Manifest specification, is a JSON text file that provides information about a web application. After we build the application our should have created this file. When running the application in the browser we should see something similar.
+<div style="margin-top: 15px;">
+	<img align="center" src="./Assets/images/jate-004.png" alt="Manifest" height="600">
+</div>
+</details>
+
+<details style="margin-bottom: 25px; margin-top: 25px;">
+	<summary><span style="color:orange">Service Workers</span></summary>
+A service worker functions like a proxy server, allowing you to modify requests and responses replacing them with items from its own cache. After we build the application our should have created the service worker file. When running the application in the browser we should see something similar.
+<div style="margin-top: 15px;">
+	<img align="center" src="./Assets/images/jate-005.png" alt="Manifest" height="600">
+</div>
+</details>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 </div>
 
@@ -78,7 +108,7 @@ Dependancies included in the client package.json:
      code-mirror-themes version 1.0.0
      idb version 6.1.2
 
-     Development Dependancies
+     Development Dependancies:
           @babel/core Version 7.15.0
           @babel/plugin-proposal-object-rest-spread Version 7.20.7
           @babel/plugin-transform-runtime Version 7.15.0
