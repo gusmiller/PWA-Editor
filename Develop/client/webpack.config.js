@@ -10,8 +10,9 @@
  *******************************************************************/
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const CopyPlugin = require('copy-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 const path = require('path');
-const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');
 
 // Todo-done: Add and configure workbox plugins for a service worker and manifest file.
 // Todo-done: Add CSS loaders and babel to webpack.
@@ -32,7 +33,16 @@ module.exports = () => {
                     template: './index.html',
                     title: 'Jate Text Editor'
                }),
-               new GenerateSW(),
+               //new GenerateSW(),
+               new CopyPlugin({
+                    patterns: [
+                         { from: 'favicon.ico', to: 'favicon.ico' }
+                       ],
+               }),
+               new InjectManifest({
+                    swSrc: path.resolve(__dirname, 'src-sw.js'),
+                    swDest: 'service-worker.js',
+               }),
                new WebpackPwaManifest({
                     name: 'Just Another Text Editor (Jate)',
                     short_name: 'JateEdit',
