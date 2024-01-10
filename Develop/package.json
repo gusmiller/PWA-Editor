@@ -18,10 +18,7 @@
      "author": "Carleton University",
      "license": "ISC",
      "dependencies": {
-          "@uiw/codemirror-themes": "^4.21.21",
-          "code-mirror-themes": "^1.0.0",
-          "express": "^4.17.1",
-          "if-env": "^1.0.4"
+          "express": "^4.17.1"
      },
      "devDependencies": {
           "concurrently": "^5.2.0",
