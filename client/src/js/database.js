@@ -23,40 +23,36 @@ const initdb = async () =>
      });
 
 /**
- * ToDo-Done: Add logic to a method that accepts some content and adds it to 
- * the database. In here I have added a success/error traps.
+ * Push information to the IndexedDB local database. We are not creating multiple records 
+ * we are adding all lines into 1 record.
  * @param {data} content 
  */
-export const putDb = async (content) => {
+const putDb = async (content) => {
      console.log('Post to the database');
      const jateDb = await openDB('jate', 1); // Connect database (include version)
      const tx = jateDb.transaction('jate', 'readwrite'); // RW transaction.
-     const store = tx.objectStore('jate', 1); // Open up the desired object store.
-     let request = store.put({ id: 1, value: content }); // Add the content
-     const result = await request;
-     console.log('🚀 - data saved to the database', result);
+     const store = tx.objectStore('jate'); // Open up the desired object store.
+     const id = await store.put({ id: 1, value: content }); // Add the content
+     console.log(`🚀 - data saved to the database with ID: ${id}`);
 };
 
 /**
- * ToDo-Done: Add logic for a method that gets all the content from the database. 
- * I should implement an request.onsuccess / request.onerror to proplerly handle 
- * the call but I am not 
+ * Get the record from IndexedDB. Editor allows users to create multiple lines text
+ * but they are all saved into 1 record. The max range can go from 10MB to 2GN
  * @returns result - Object containing all records
  */
-export const getAllDb = async () => {
+const getDb = async () => {
      console.log('GET all from the database');
 
-     const jateDb = await openDB('jate', 1);
-     const tx = jateDb.transaction('jate', 'readonly');
-     const store = tx.objectStore('jate');
-     const request = store.get(1);
-     const result = await request;
+     const jateDb = await openDB('jate', 1); //stablish connection to database
+     const tx = jateDb.transaction('jate', 'readonly'); // create a database transaction
+     const store = tx.objectStore('jate'); //Get transaction object
+     const request = await store.get(1); // get record from the IndexedD
 
-     if (!result) {
-          console.error('getDb not implemented');
-     } else {
-          return result.content;
-     }
+     console.log('Data:', request);
+     await tx.complete; //Wait for transaction to complete
+     return request;     
 };
 
 initdb();
+export { getDb, putDb };

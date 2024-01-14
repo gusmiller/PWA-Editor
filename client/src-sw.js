@@ -8,7 +8,7 @@
  * Date : 12/30/2023 9:21:28 AM
  * Purpose: 
  *******************************************************************/
-const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
+const { CacheFirst, StaleWhileRevalidate, warmStrategyCache } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
@@ -29,18 +29,23 @@ const pageCache = new CacheFirst({
      ],
 });
 
-
-registerRoute(({ request }) => request.mode === 'navigate', pageCache);
+/**
+ * Cache warming is a concept which is used to optimize the performance 
+ * of a website or web application by preloading the cache with frequently 
+ * accessed content.
+ * https://www.webscale.com/blog/cache-warming-optimizing-user-experience/#:~:text=Cache%20warming%20is%20a%20concept,serve%20it%20to%20the%20user.
+ */
+warmStrategyCache({
+     urls: ['/index.html', '/'],
+     strategy: pageCache,
+});
 
 /**
- * ToDo-Done: Set up asset cache. Define the callback function 
- * that will filter the requests we want to cache (in this 
- * case, JS and CSS files)
  * Name of the cache storage: asset-cache
  */
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
-// TODO: Implement asset caching
-// cache assets with StaleWhileRevalidate 
+
+// Cache assets with StaleWhileRevalidate 
 registerRoute(
      ({ request }) =>
           request.destination === 'script' ||
