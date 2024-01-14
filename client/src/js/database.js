@@ -47,11 +47,11 @@ const getDb = async () => {
      const jateDb = await openDB('jate', 1); //stablish connection to database
      const tx = jateDb.transaction('jate', 'readonly'); // create a database transaction
      const store = tx.objectStore('jate'); //Get transaction object
-     const request = await store.get(1); // get record from the IndexedD
+     const content = await store.get({ id: 1 }); // get record from the IndexedD
 
-     console.log('Data:', request);
+     console.log('Data:', content.id);
      await tx.complete; //Wait for transaction to complete
-     return request;     
+     return content;
 };
 
 initdb();
