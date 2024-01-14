@@ -35,6 +35,8 @@ Here is the snapshotJust Another Text Editor!
 
 <div align="center" style="margin-top: 15px;"><img src="./Assets/images/jate-001.png" height="800"></div>
 
+The application has been uploaded into Heroku: [JATE Editor](https://pwa-myeditor-238ff16eb3c7.herokuapp.com/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 </div>
 

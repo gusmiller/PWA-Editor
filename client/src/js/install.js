@@ -14,7 +14,6 @@ const butInstall = document.getElementById('buttonInstall');
 // Logic for installing the PWA
 
 /**
- * Todo-done: Add an event handler to the `beforeinstallprompt` event.
  * The beforeinstallprompt event fires when the browser has detected that a 
  * website can be installed as a Progressive Web App.
  * Important Note: There's no guaranteed time this event is fired, but it 
@@ -27,21 +26,33 @@ window.addEventListener('beforeinstallprompt', (event) => {
 });
 
 /**
- * Todo-done: Implement a click event handler on the `butInstall` element
+ * Event handler/listener for the `butInstall` element
  */
 butInstall.addEventListener('click', async () => {
      const promptEvent = window.deferredPrompt;
      if (!promptEvent) { return; }
 
-     const result = await promptEvent.prompt();
+     const result = await promptEvent.prompt(); //Prompt user 
      console.log(`Install prompt was: ${result.outcome}`);
-     window.deferredPrompt = null;
+     window.deferredPrompt = null; // setting the deferred prompt to null
      butInstall.classList.toggle('hidden', true);
 });
 
 /**
- * Todo-done: Add an handler for the `appinstalled` event
+ * Event listener/handler for the `appinstalled` event
  */
 window.addEventListener('appinstalled', (event) => {
      window.deferredPrompt = null;
+     console.log('App installed successfully!', event);
+});
+
+/**
+ * Event listener for fetching errors from the service worker
+ */
+navigator.serviceWorker.addEventListener('message', (event) => {
+     if (event.data.error) {
+          // error message for service worker fetch errors
+          console.error('Fetch error:', event.data.error);
+          document.body.innerHTML = '<h1>Offline</h1>';
+     }
 });
