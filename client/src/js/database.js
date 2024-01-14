@@ -27,13 +27,13 @@ const initdb = async () =>
  * we are adding all lines into 1 record.
  * @param {data} content 
  */
-const putDb = async (content) => {
+export const putDb = async (content) => {
      console.log('Post to the database');
      const jateDb = await openDB('jate', 1); // Connect database (include version)
      const tx = jateDb.transaction('jate', 'readwrite'); // RW transaction.
      const store = tx.objectStore('jate'); // Open up the desired object store.
      const id = await store.put({ id: 1, value: content }); // Add the content
-     console.log(`🚀 - data saved to the database with ID: ${id}`);
+     console.log(`Editor data saved to the database with ID: ${id}`);
 };
 
 /**
@@ -41,18 +41,21 @@ const putDb = async (content) => {
  * but they are all saved into 1 record. The max range can go from 10MB to 2GN
  * @returns result - Object containing all records
  */
-const getDb = async () => {
-     console.log('GET all from the database');
+export const getDb = async () => {
+     console.log('GET persistent data from the Local IndexedDB database');
 
      const jateDb = await openDB('jate', 1); //stablish connection to database
      const tx = jateDb.transaction('jate', 'readonly'); // create a database transaction
      const store = tx.objectStore('jate'); //Get transaction object
-     const content = await store.get({ id: 1 }); // get record from the IndexedD
+     const content = await store.get(1); // get record from the IndexedD
 
-     console.log('Data:', content.id);
-     await tx.complete; //Wait for transaction to complete
-     return content;
+     if (!content) {
+          console.log('Value of content', content);
+          console.log('getDb not implemented'); //Something went wrong
+     } else {
+          console.log('Data:', content.id);
+          return content.value;
+     }
 };
 
 initdb();
-export { getDb, putDb };

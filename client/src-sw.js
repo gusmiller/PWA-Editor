@@ -8,7 +8,8 @@
  * Date : 12/30/2023 9:21:28 AM
  * Purpose: 
  *******************************************************************/
-const { CacheFirst, StaleWhileRevalidate, warmStrategyCache } = require('workbox-strategies');
+const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
+const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
@@ -87,7 +88,7 @@ self.addEventListener('fetch', (event) => {
 });
 
 // log additional information for debugging
-console.log('Service Worker loaded:', self);
+// console.log('Service Worker loaded:', self);
 
 // event listener for fetch errors in the service worker
 self.addEventListener('message', (event) => {
