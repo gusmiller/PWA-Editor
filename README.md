@@ -33,9 +33,9 @@ The template-base application was given to us. Our challenge was to make-prepare
 
 Here is the snapshotJust Another Text Editor!
 
-<div align="center" style="margin-top: 15px;"><img src="./Assets/images/jate-001.png" height="800"></div>
+<div align="center" style="margin-top: 15px;"><img src="./Assets/images/jate-001.png" height="400"></div>
 
-The application has been uploaded into Heroku: [JATE Editor](https://pwa-myeditor-238ff16eb3c7.herokuapp.com/)
+The application has been deployed into Heroku: [JATE Editor](https://pwa-myeditor-238ff16eb3c7.herokuapp.com/). Hope you like my first PWA application, I hope to sharpen my skill in this technology, as I can see it will be in high demand, specially when migrating existing application into PWA.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 </div>
