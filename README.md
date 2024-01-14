@@ -1,6 +1,6 @@
 <a id="readme-top" name="readme-top"></a>
 
-<p align="center"><img src="./assets/images/carleton-u-logo.jpg" height="250"></p>
+<p align="center"><img src="./Assets/images/carleton-u-logo.jpg" height="250"></p>
 
 <p align="center" style="margin-top:25px; margin-bottom:50px;">
 	<a><img src="https://img.shields.io/static/v1.svg?label=License&message=Mozilla Public License&color=blue"/></a>
